@@ -74,6 +74,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042B275320106D4C00CC89FD /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
 		0462EADF2008633A00DC10F0 = {
 			isa = PBXGroup;
 			children = (
@@ -146,18 +153,11 @@
 		04DA1C87200DF0B600DF9209 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				042B275320106D4C00CC89FD /* Strings */,
 				04DA1C89200DF0CF00DF9209 /* Images */,
-				04DA1C88200DF0C500DF9209 /* Strings */,
 				04DA1C86200DF0A300DF9209 /* Plists */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		04DA1C88200DF0C500DF9209 /* Strings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Strings;
 			sourceTree = "<group>";
 		};
 		04DA1C89200DF0CF00DF9209 /* Images */ = {
@@ -173,20 +173,12 @@
 		04DA1C8A200DF0E000DF9209 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				04DA1C8B200DF10100DF9209 /* Base */,
 				0462EAEE2008633A00DC10F0 /* ViewController.h */,
 				0462EAEF2008633A00DC10F0 /* ViewController.m */,
 				0462EB0F20088D0A00DC10F0 /* ShapeView.h */,
 				0462EB1020088D0A00DC10F0 /* ShapeView.m */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		04DA1C8B200DF10100DF9209 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		37166B022A31E76867138420 /* Frameworks */ = {
@@ -516,14 +508,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H88F7EJ8FR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/mac/Desktop/LinkageTableView/Linkage/LinkageTableView/Define/PrefixHeader.pch;
 				INFOPLIST_FILE = LinkageTableView/Resources/Plists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.z.twtest.LinkageTableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "7fd7d533-6ffa-4bf8-9ae7-e6645c9986fd";
+				PROVISIONING_PROFILE_SPECIFIER = DeveloperAll;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -534,14 +527,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = H88F7EJ8FR;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = /Users/mac/Desktop/LinkageTableView/Linkage/LinkageTableView/Define/PrefixHeader.pch;
 				INFOPLIST_FILE = LinkageTableView/Resources/Plists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.z.twtest.LinkageTableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "7fd7d533-6ffa-4bf8-9ae7-e6645c9986fd";
+				PROVISIONING_PROFILE_SPECIFIER = DeveloperAll;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
