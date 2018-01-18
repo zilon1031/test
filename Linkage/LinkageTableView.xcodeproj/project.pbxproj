@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042B27572010848B00CC89FD /* NSString+CLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 042B27552010848B00CC89FD /* NSString+CLString.m */; };
 		0462EAED2008633A00DC10F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462EAEC2008633A00DC10F0 /* AppDelegate.m */; };
 		0462EAF02008633A00DC10F0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462EAEF2008633A00DC10F0 /* ViewController.m */; };
 		0462EAF52008633A00DC10F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0462EAF42008633A00DC10F0 /* Assets.xcassets */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		042B27552010848B00CC89FD /* NSString+CLString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CLString.m"; sourceTree = "<group>"; };
+		042B27562010848B00CC89FD /* NSString+CLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CLString.h"; sourceTree = "<group>"; };
 		0462EAE82008633A00DC10F0 /* LinkageTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkageTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0462EAEB2008633A00DC10F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0462EAEC2008633A00DC10F0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -79,6 +82,15 @@
 			children = (
 			);
 			path = Strings;
+			sourceTree = "<group>";
+		};
+		042B27542010847100CC89FD /* Categroy */ = {
+			isa = PBXGroup;
+			children = (
+				042B27562010848B00CC89FD /* NSString+CLString.h */,
+				042B27552010848B00CC89FD /* NSString+CLString.m */,
+			);
+			path = Categroy;
 			sourceTree = "<group>";
 		};
 		0462EADF2008633A00DC10F0 = {
@@ -173,6 +185,7 @@
 		04DA1C8A200DF0E000DF9209 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				042B27542010847100CC89FD /* Categroy */,
 				0462EAEE2008633A00DC10F0 /* ViewController.h */,
 				0462EAEF2008633A00DC10F0 /* ViewController.m */,
 				0462EB0F20088D0A00DC10F0 /* ShapeView.h */,
@@ -328,7 +341,7 @@
 				"${SRCROOT}/../Pods/Target Support Files/Pods-LinkageTableView/Pods-LinkageTableView-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/RETableViewManager/RETableViewManager.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/RETableViewManager/RETableViewManager.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -361,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042B27572010848B00CC89FD /* NSString+CLString.m in Sources */,
 				0462EAF02008633A00DC10F0 /* ViewController.m in Sources */,
 				0462EAFB2008633A00DC10F0 /* main.m in Sources */,
 				0462EB1120088D0A00DC10F0 /* ShapeView.m in Sources */,

@@ -14,8 +14,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        self.layer.cornerRadius = 5;
-        self.layer.masksToBounds = YES;
+//        self.layer.cornerRadius = 5;
+//        self.layer.masksToBounds = YES;
     }
     return self;
 }
@@ -33,11 +33,17 @@
 //    CGContextFillPath(contextRef);
     
     CGContextRef ctx = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(ctx, [UIColor blueColor].CGColor);
+    if (self.bgColor) {
+        CGContextSetFillColorWithColor(ctx, self.bgColor.CGColor);
+    } else {
+        CGContextSetFillColorWithColor(ctx, [UIColor blueColor].CGColor);
+
+    }
+    
     CGContextMoveToPoint(ctx, 0, 0);
-    CGContextAddLineToPoint(ctx, self.frame.size.width / 2 - 10, 0);
-    CGContextAddLineToPoint(ctx, self.frame.size.width / 2, self.frame.size.height / 2);
-    CGContextAddLineToPoint(ctx, self.frame.size.width / 2 - 10, self.frame.size.height);
+    CGContextAddLineToPoint(ctx, self.frame.size.width - 10, 0);
+    CGContextAddLineToPoint(ctx, self.frame.size.width, self.frame.size.height / 2);
+    CGContextAddLineToPoint(ctx, self.frame.size.width - 10, self.frame.size.height);
     CGContextAddLineToPoint(ctx, 0, self.frame.size.height);
 
     CGContextFillPath(ctx);
