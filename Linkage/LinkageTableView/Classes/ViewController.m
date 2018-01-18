@@ -157,7 +157,7 @@
             [cell addSubview:arrowImageView];
         }
         UILabel *titleLabel = (UILabel *)[cell viewWithTag:2000];
-        UIImageView *arrowImageView = (UIImageView *)[cell viewWithTag:2001];
+        UIImageView *arrowImageView1 = (UIImageView *)[cell viewWithTag:2001];
         return cell;
     } else if (tableView == self.thirdChannelTableView) {
         static NSString *cellIdentifier = @"thirdChannelCell";
