@@ -129,6 +129,9 @@
             arrowImageView.hidden = YES;
             [cell addSubview:arrowImageView];
         }
+        
+        UILabel *titleLabel = (UILabel *)[cell viewWithTag:1000];
+        UIImageView *arrowImageView = (UIImageView *)[cell viewWithTag:1001];
         return cell;
     } else if (tableView == self.secondChannelTableView) {
         static NSString *cellIdentifier = @"secondChannelCell";
@@ -153,6 +156,8 @@
             arrowImageView.hidden = YES;
             [cell addSubview:arrowImageView];
         }
+        UILabel *titleLabel = (UILabel *)[cell viewWithTag:2000];
+        UIImageView *arrowImageView1 = (UIImageView *)[cell viewWithTag:2001];
         return cell;
     } else if (tableView == self.thirdChannelTableView) {
         static NSString *cellIdentifier = @"thirdChannelCell";
@@ -161,22 +166,15 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             
-            UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, KMainW / 2 - 30, 20)];
+            UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, KMainW / 2 - 20, 20)];
             titleLabel.backgroundColor = [UIColor clearColor];
             titleLabel.textColor = [UIColor blackColor];
             titleLabel.textAlignment = NSTextAlignmentLeft;
             titleLabel.font = [UIFont systemFontOfSize:15.f];
             titleLabel.tag = 3000;
             [cell addSubview:titleLabel];
-            
-            UIImage *arrowImage = [UIImage imageNamed:@"icon_arrow_right"];
-            UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(KMainW/ 2 - 15, (40 - arrowImage.size.height) / 2, arrowImage.size.width, arrowImage.size.height)];
-            arrowImageView.backgroundColor = [UIColor clearColor];
-            arrowImageView.tag = 3001;
-            arrowImageView.image = arrowImage;
-            arrowImageView.hidden = YES;
-            [cell addSubview:arrowImageView];
         }
+        UILabel *titleLabel = (UILabel *)[cell viewWithTag:3000];
         return cell;
     } else {
         return nil;
