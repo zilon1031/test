@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSString *thirdChannelString;
 
 @property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIButton *clearButton;
 
 
 //@property (nonatomic, strong) NSMutableArray *firstChannelArray;
@@ -51,13 +52,19 @@
 //    UIView *arrowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, KMainW/2, 40)];
 //    arrowView.backgroundColor = [UIColor yellowColor];
 //    [topView addSubview:arrowView];
-    
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, KMainW - 10, 20)];
+    UIImage *clearImage = [UIImage imageNamed:@"icon_delete"];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, KMainW - 25 - clearImage.size.width, 20)];
     self.titleLabel.backgroundColor = [UIColor clearColor];
     self.titleLabel.textColor = [UIColor blackColor];
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
     self.titleLabel.font = [UIFont systemFontOfSize:15.f];
     [self.view addSubview:self.titleLabel];
+    
+    self.clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.clearButton.frame = CGRectMake(KMainW - 10 - clearImage.size.width, 40 - clearImage.size.height/ 2, clearImage.size.width, clearImage.size.height);
+    [self.clearButton setImage:clearImage forState:UIControlStateNormal];
+    [self.clearButton addTarget:self action:@selector(clearButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.clearButton];
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, KMainW, KMainH - 64)];
     self.scrollView.backgroundColor = [UIColor clearColor];
@@ -266,5 +273,10 @@
 //- (void)fakeData {
 //
 //}
+
+#pragma mark - Button Event
+- (void)clearButtonClick:(id)sender {
+    
+}
 @end
 

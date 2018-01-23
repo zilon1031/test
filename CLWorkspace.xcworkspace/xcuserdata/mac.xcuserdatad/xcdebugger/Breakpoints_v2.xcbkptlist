@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Linkage/LinkageTableView/Classes/ViewController.m"
-            timestampString = "537962194.96703"
+            filePath = "CLQrCode/CLQrCode/Classes/ScanViewController.m"
+            timestampString = "538372643.099479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
-            landmarkName = "-refreshChannelString"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-initWithCustomView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Linkage/LinkageTableView/Classes/ViewController.m"
-            timestampString = "537962194.9675961"
+            filePath = "CLQrCode/CLQrCode/Classes/ScanViewController.m"
+            timestampString = "538372643.099878"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-initWithCustomView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Linkage/LinkageTableView/Classes/ViewController.m"
-            timestampString = "537962194.968024"
+            filePath = "CLQrCode/CLQrCode/Classes/ScanViewController.m"
+            timestampString = "538372643.100107"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-initWithCustomView"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Linkage/LinkageTableView/Classes/ViewController.m"
-            timestampString = "537962194.968363"
+            filePath = "CLQrCode/CLQrCode/Classes/CLScanHelper.m"
+            timestampString = "538372643.100328"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "-captureOutput:didOutputMetadataObjects:fromConnection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CLQrCode/CLQrCode/Classes/CLScanHelper.m"
+            timestampString = "538372643.100378"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "-captureOutput:didOutputMetadataObjects:fromConnection:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

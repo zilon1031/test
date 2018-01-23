@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C033FB0EB4C130E8A7524AD27F391C6B'
+               BlueprintIdentifier = '477B16D6D805E48A39F43F6B07EA7B40'
                BlueprintName = 'REFormattedNumberField'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libREFormattedNumberField.a'>

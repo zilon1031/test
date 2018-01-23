@@ -5,6 +5,9 @@
       location = "group:Linkage/LinkageTableView.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:CLQrCode/CLQrCode.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
