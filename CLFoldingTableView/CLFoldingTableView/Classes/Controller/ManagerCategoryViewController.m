@@ -8,6 +8,7 @@
 
 #import "ManagerCategoryViewController.h"
 #import "CategoryModel.h"
+#import "CategoryTableViewCell.h"
 
 #define kAddSubButtonBaseTag 3000
 
@@ -154,13 +155,65 @@
     if ([self.showArray count] == 0) {
         [self.showArray addObjectsFromArray:self.dataArray];
     } else {
-        [self.showArray removeAllObjects];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"编辑分类名称" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *commitAlertAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UITextField *newNameTextField = alertController.textFields.firstObject;
+            
+            CategoryModel *categoryModel = [[CategoryModel alloc] init];
+            categoryModel.name = newNameTextField.text;
+            categoryModel.id = [self.showArray count] + 1;
+            categoryModel.list = nil;
+            categoryModel.isUnfold = NO;
+            
+            [self.showArray addObject:categoryModel];
+            
+            [self.categoryTableView reloadData];
+        }];
+        [alertController addAction:commitAlertAction];
+        
+        UIAlertAction *cancelAlertAction =[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:cancelAlertAction];
+        
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            textField.placeholder = @"请输入用户名";
+        }];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
     }
     [self refreshView];
 }
 - (void)addSubCategoryButtonClick:(id)sender {
     UIButton *button = (UIButton *)sender;
     NSLog(@"button tag : %ld", button.tag - kAddSubButtonBaseTag);
+    
+    CategoryModel *categoryModel = [self.showArray objectAtIndex:(button.tag - kAddSubButtonBaseTag)];
+    NSMutableArray *subCategoryArray = [NSMutableArray arrayWithArray:categoryModel.list];
+//    SubCategoryModel *subCategoryModel = [subCategoryArray objectAtIndex:(indexPath.row - 1)];
+    SubCategoryModel *lastSubCategoryModel = [subCategoryArray lastObject];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"编辑分类名称" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField *textField = alertController.textFields.firstObject;
+        SubCategoryModel *subCategoryModel = [[SubCategoryModel alloc] init];
+        subCategoryModel.id = lastSubCategoryModel.id + 1;
+        subCategoryModel.name = textField.text;
+        subCategoryModel.fid = lastSubCategoryModel.fid;
+
+        [subCategoryArray addObject:subCategoryModel];
+        categoryModel.list = subCategoryArray;
+        [self.showArray replaceObjectAtIndex:(button.tag - kAddSubButtonBaseTag) withObject:categoryModel];
+        
+        [self.categoryTableView reloadData];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:commitAction];
+    [alertController addAction:cancelAction];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+    }];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    
+    
 }
 #pragma mark - Fake Data
 - (void)fakeData {
@@ -218,74 +271,112 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"CategoryCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    CategoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        
-        UILabel *titleLabel = [[UILabel alloc] init];
-        titleLabel.backgroundColor = [UIColor clearColor];
-        titleLabel.textColor = [UIColor blackColor];
-        titleLabel.textAlignment = NSTextAlignmentLeft;
-        titleLabel.font = [UIFont systemFontOfSize:15.f];
-        titleLabel.tag = 1000;
-        [cell addSubview:titleLabel];
-        if (indexPath.row == 0) {
-            titleLabel.frame = CGRectMake(10, 15, 300, 16);
-            
-            UIImage *arrowImage = [UIImage imageNamed:@"register_three_arrow_up"];
-            UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(305, (45 - arrowImage.size.height) / 2, arrowImage.size.width, arrowImage.size.height)];
-            arrowImageView.backgroundColor = [UIColor clearColor];
-            arrowImageView.image = arrowImage;
-            arrowImageView.tag = 1001;
-            [cell addSubview:arrowImageView];
-        } else {
-            titleLabel.frame = CGRectMake(20, 15, 300, 16);
-        }
-        
-        UIButton *editButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [editButton setBackgroundColor:[UIColor clearColor]];
-        [editButton setTitle:@"编辑" forState:UIControlStateNormal];
-        [editButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        editButton.titleLabel.font = [UIFont systemFontOfSize:13.f];
-        editButton.tag = 1002;
-        [cell addSubview:editButton];
-        
-        
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(10, 44.5, KMainW - 10, 0.5)];
-        lineView.backgroundColor = [UIColor lightGrayColor];
-        [cell addSubview:lineView];
+        cell = [[CategoryTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier cellForRowAtIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-    UILabel *titleLabel = (UILabel *)[cell viewWithTag:1000];
-    UIImageView *arrowImageView = (UIImageView *)[cell viewWithTag:1001];
-    UIImage *arrowUpImage = [UIImage imageNamed:@"register_three_arrow_up"];
-    UIImage *arrowDownImage = [UIImage imageNamed:@"register_three_arrow_down"];
-    
     CategoryModel *categoryModel = [self.showArray objectAtIndex:indexPath.section];
-    NSMutableArray *subCategoryArray = categoryModel.list;
-
-    if (indexPath.row == 0) {
-        titleLabel.text = categoryModel.name;
-        if ([subCategoryArray count] == 0) {
-            arrowImageView.hidden = YES;
+    [cell setDataSource:categoryModel cellForRowAtIndexPath:indexPath];
+    
+    weakSelf(self)
+    [cell setEditBlock:^(NSIndexPath *indexPath) {
+        strongSelf(self)
+        CategoryModel *categoryModel = [self.showArray objectAtIndex:indexPath.section];
+        if (indexPath.row == 0) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"编辑分类名称" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UITextField *textField = alertController.textFields.firstObject;
+                categoryModel.name = textField.text;
+                [self.showArray replaceObjectAtIndex:indexPath.section withObject:categoryModel];
+                
+                [self.categoryTableView reloadData];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:commitAction];
+            [alertController addAction:cancelAction];
+            [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                textField.placeholder = categoryModel.name;
+            }];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+            
         } else {
-            arrowImageView.hidden = NO;
-        }
-        if (categoryModel.isUnfold) {
-            arrowImageView.image = arrowUpImage;
-        } else {
-            arrowImageView.image = arrowDownImage;
-        }
-    } else {
-        if (subCategoryArray && [subCategoryArray count] > 0) {
+            NSMutableArray *subCategoryArray = [NSMutableArray arrayWithArray:categoryModel.list];
             SubCategoryModel *subCategoryModel = [subCategoryArray objectAtIndex:(indexPath.row - 1)];
-            titleLabel.text = subCategoryModel.name;
-        }
-        arrowImageView.hidden = YES;
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"编辑分类名称" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UITextField *textField = alertController.textFields.firstObject;
+                subCategoryModel.name = textField.text;
+                
+                [subCategoryArray replaceObjectAtIndex:(indexPath.row - 1) withObject:subCategoryModel];
+                categoryModel.list = subCategoryArray;
+                [self.showArray replaceObjectAtIndex:indexPath.section withObject:categoryModel];
 
-    }
+                [self.categoryTableView reloadData];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:commitAction];
+            [alertController addAction:cancelAction];
+            [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+                textField.placeholder = subCategoryModel.name;
+            }];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+    }];
+    
+    [cell setDeleteBlock:^(NSIndexPath *indexPath) {
+        strongSelf(self)
+        CategoryModel *categoryModel = [self.showArray objectAtIndex:indexPath.section];
+        NSMutableArray *subCategoryArray = [NSMutableArray arrayWithArray:categoryModel.list];
+        if (indexPath.row == 0) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"编辑分类名称" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                NSMutableArray *tempArray = [NSMutableArray array];
+                for (SubCategoryModel *subCategoryModel in subCategoryArray) {
+                    CategoryModel *newCategoryModel = [[CategoryModel alloc] init];
+                    newCategoryModel.id = subCategoryModel.id;
+                    newCategoryModel.name = subCategoryModel.name;
+                    newCategoryModel.list = nil;
+                    newCategoryModel.isUnfold = NO;
+                    if ([tempArray indexOfObject:newCategoryModel] == NSNotFound) {
+                        [tempArray addObject:newCategoryModel];
+                    }
+                }
+                if ([tempArray count] > 0) {
+                    [self.showArray addObjectsFromArray:tempArray];
+                }
+                if ([self.showArray indexOfObject:categoryModel] != NSNotFound) {
+                    [self.showArray removeObject:categoryModel];
+                }
+                [self.categoryTableView reloadData];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:deleteAction];
+            [alertController addAction:cancelAction];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+        } else {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"编辑分类名称" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *deleteAction = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                if (indexPath.row > 0) {
+                    [subCategoryArray removeObjectAtIndex:(indexPath.row - 1)];
+                }
+                categoryModel.list = subCategoryArray;
+                [self.showArray replaceObjectAtIndex:indexPath.section withObject:categoryModel];
+                
+                [self.categoryTableView reloadData];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:deleteAction];
+            [alertController addAction:cancelAction];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+    }];
     return cell;
 }
 
@@ -328,7 +419,7 @@
     
     UIButton *addSubCategoryButton = [UIButton buttonWithType:UIButtonTypeCustom];
     addSubCategoryButton.frame = CGRectMake(0, 0, footView.frame.size.width, footView.frame.size.height);
-    addSubCategoryButton.backgroundColor = [UIColor whiteColor];
+    addSubCategoryButton.backgroundColor = [UIColor clearColor];
     [addSubCategoryButton setTitle:@"+ 添加子分类" forState:UIControlStateNormal];
     [addSubCategoryButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     addSubCategoryButton.titleLabel.font = [UIFont systemFontOfSize:15.f];
@@ -342,17 +433,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     CategoryModel *categoryModel = [self.showArray objectAtIndex:indexPath.section];
     if (indexPath.row == 0) {
-        NSLog(@"category -- %@", categoryModel.name);
         if (categoryModel.isUnfold) {
             categoryModel.isUnfold = NO;
         } else {
             categoryModel.isUnfold = YES;
         }
-        [self refreshView];
+        [self.categoryTableView reloadData];
     } else {
         NSMutableArray *subCategoryArray = categoryModel.list;
         SubCategoryModel *subCategoryModel = [subCategoryArray objectAtIndex:(indexPath.row - 1)];
-        NSLog(@"category -- %@", subCategoryModel.name);
     }
 }
 

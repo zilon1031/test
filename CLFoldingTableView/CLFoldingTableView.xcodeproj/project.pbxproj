@@ -7,13 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044F9E6520182023006AC38D /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F9E6420182023006AC38D /* CategoryTableViewCell.m */; };
+		044F9E6C20183B2F006AC38D /* UIButton+CLButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 044F9E6B20183B2F006AC38D /* UIButton+CLButton.m */; };
 		04D6A0052017012600BF3263 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0042017012600BF3263 /* AppDelegate.m */; };
 		04D6A0082017012600BF3263 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0072017012600BF3263 /* ViewController.m */; };
-		04D6A00B2017012600BF3263 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D6A0092017012600BF3263 /* Main.storyboard */; };
 		04D6A00D2017012600BF3263 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D6A00C2017012600BF3263 /* Assets.xcassets */; };
 		04D6A0102017012600BF3263 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D6A00E2017012600BF3263 /* LaunchScreen.storyboard */; };
 		04D6A0132017012600BF3263 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0122017012600BF3263 /* main.m */; };
 		04D6A01D2017012700BF3263 /* CLFoldingTableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A01C2017012700BF3263 /* CLFoldingTableViewTests.m */; };
+		04D6A0332017053700BF3263 /* FoldingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0322017053700BF3263 /* FoldingTableView.m */; };
+		04D6A0362017092800BF3263 /* ManagerCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A0352017092800BF3263 /* ManagerCategoryViewController.m */; };
+		04D6A03F20170FB500BF3263 /* icon_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D6A03820170FB400BF3263 /* icon_back@3x.png */; };
+		04D6A04020170FB500BF3263 /* register_three_arrow_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D6A03920170FB400BF3263 /* register_three_arrow_up@2x.png */; };
+		04D6A04120170FB500BF3263 /* register_three_arrow_up@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D6A03A20170FB400BF3263 /* register_three_arrow_up@3x.png */; };
+		04D6A04220170FB500BF3263 /* icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D6A03B20170FB400BF3263 /* icon_back@2x.png */; };
+		04D6A04320170FB500BF3263 /* register_three_arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D6A03C20170FB400BF3263 /* register_three_arrow_down@2x.png */; };
+		04D6A04420170FB500BF3263 /* register_three_arrow_down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D6A03D20170FB400BF3263 /* register_three_arrow_down@3x.png */; };
+		04D6A04520170FB500BF3263 /* icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D6A03E20170FB400BF3263 /* icon_back.png */; };
+		04D6A04820171ABC00BF3263 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6A04720171ABC00BF3263 /* CategoryModel.m */; };
+		4777F4A5AEBA8917A80B0DE9 /* libPods-CLFoldingTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50578D678A56C3DDD9A06D97 /* libPods-CLFoldingTableView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,12 +39,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		044F9E6320182023006AC38D /* CategoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewCell.h; sourceTree = "<group>"; };
+		044F9E6420182023006AC38D /* CategoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewCell.m; sourceTree = "<group>"; };
+		044F9E6A20183B2F006AC38D /* UIButton+CLButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CLButton.h"; sourceTree = "<group>"; };
+		044F9E6B20183B2F006AC38D /* UIButton+CLButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CLButton.m"; sourceTree = "<group>"; };
 		04D6A0002017012600BF3263 /* CLFoldingTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLFoldingTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D6A0032017012600BF3263 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04D6A0042017012600BF3263 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		04D6A0062017012600BF3263 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		04D6A0072017012600BF3263 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		04D6A00A2017012600BF3263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04D6A00C2017012600BF3263 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04D6A00F2017012600BF3263 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04D6A0112017012600BF3263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,6 +55,24 @@
 		04D6A0182017012700BF3263 /* CLFoldingTableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLFoldingTableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D6A01C2017012700BF3263 /* CLFoldingTableViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLFoldingTableViewTests.m; sourceTree = "<group>"; };
 		04D6A01E2017012700BF3263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04D6A029201701D300BF3263 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		04D6A0312017053700BF3263 /* FoldingTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldingTableView.h; sourceTree = "<group>"; };
+		04D6A0322017053700BF3263 /* FoldingTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoldingTableView.m; sourceTree = "<group>"; };
+		04D6A0342017092800BF3263 /* ManagerCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManagerCategoryViewController.h; sourceTree = "<group>"; };
+		04D6A0352017092800BF3263 /* ManagerCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManagerCategoryViewController.m; sourceTree = "<group>"; };
+		04D6A0372017097D00BF3263 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		04D6A03820170FB400BF3263 /* icon_back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@3x.png"; sourceTree = "<group>"; };
+		04D6A03920170FB400BF3263 /* register_three_arrow_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register_three_arrow_up@2x.png"; sourceTree = "<group>"; };
+		04D6A03A20170FB400BF3263 /* register_three_arrow_up@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register_three_arrow_up@3x.png"; sourceTree = "<group>"; };
+		04D6A03B20170FB400BF3263 /* icon_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@2x.png"; sourceTree = "<group>"; };
+		04D6A03C20170FB400BF3263 /* register_three_arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register_three_arrow_down@2x.png"; sourceTree = "<group>"; };
+		04D6A03D20170FB400BF3263 /* register_three_arrow_down@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register_three_arrow_down@3x.png"; sourceTree = "<group>"; };
+		04D6A03E20170FB400BF3263 /* icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_back.png; sourceTree = "<group>"; };
+		04D6A04620171ABC00BF3263 /* CategoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
+		04D6A04720171ABC00BF3263 /* CategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
+		13D761CBEC58669B61C2B455 /* Pods-CLFoldingTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLFoldingTableView.release.xcconfig"; path = "../Pods/Target Support Files/Pods-CLFoldingTableView/Pods-CLFoldingTableView.release.xcconfig"; sourceTree = "<group>"; };
+		3F0C819F7350C3F8ADE694BB /* Pods-CLFoldingTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLFoldingTableView.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CLFoldingTableView/Pods-CLFoldingTableView.debug.xcconfig"; sourceTree = "<group>"; };
+		50578D678A56C3DDD9A06D97 /* libPods-CLFoldingTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CLFoldingTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4777F4A5AEBA8917A80B0DE9 /* libPods-CLFoldingTableView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +94,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044F9E6020181FA1006AC38D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A0062017012600BF3263 /* ViewController.h */,
+				04D6A0072017012600BF3263 /* ViewController.m */,
+				04D6A0342017092800BF3263 /* ManagerCategoryViewController.h */,
+				04D6A0352017092800BF3263 /* ManagerCategoryViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		044F9E6120181FAF006AC38D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				044F9E6320182023006AC38D /* CategoryTableViewCell.h */,
+				044F9E6420182023006AC38D /* CategoryTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		044F9E6220181FB6006AC38D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A04620171ABC00BF3263 /* CategoryModel.h */,
+				04D6A04720171ABC00BF3263 /* CategoryModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		044F9E6920183B2F006AC38D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				044F9E6A20183B2F006AC38D /* UIButton+CLButton.h */,
+				044F9E6B20183B2F006AC38D /* UIButton+CLButton.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		04D69FF72017012600BF3263 = {
 			isa = PBXGroup;
 			children = (
 				04D6A0022017012600BF3263 /* CLFoldingTableView */,
 				04D6A01B2017012700BF3263 /* CLFoldingTableViewTests */,
 				04D6A0012017012600BF3263 /* Products */,
+				3185F6C155EE3E762EF95E3C /* Pods */,
+				341FF2A7F404D90C9D273155 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,15 +155,11 @@
 		04D6A0022017012600BF3263 /* CLFoldingTableView */ = {
 			isa = PBXGroup;
 			children = (
-				04D6A0032017012600BF3263 /* AppDelegate.h */,
-				04D6A0042017012600BF3263 /* AppDelegate.m */,
-				04D6A0062017012600BF3263 /* ViewController.h */,
-				04D6A0072017012600BF3263 /* ViewController.m */,
-				04D6A0092017012600BF3263 /* Main.storyboard */,
+				04D6A02D201702B900BF3263 /* Classes */,
+				04D6A02A201701EA00BF3263 /* Resources */,
+				04D6A028201701C200BF3263 /* Define */,
+				04D6A0272017019200BF3263 /* main */,
 				04D6A00C2017012600BF3263 /* Assets.xcassets */,
-				04D6A00E2017012600BF3263 /* LaunchScreen.storyboard */,
-				04D6A0112017012600BF3263 /* Info.plist */,
-				04D6A0122017012600BF3263 /* main.m */,
 			);
 			path = CLFoldingTableView;
 			sourceTree = "<group>";
@@ -103,6 +173,87 @@
 			path = CLFoldingTableViewTests;
 			sourceTree = "<group>";
 		};
+		04D6A0272017019200BF3263 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A0032017012600BF3263 /* AppDelegate.h */,
+				04D6A0042017012600BF3263 /* AppDelegate.m */,
+				04D6A00E2017012600BF3263 /* LaunchScreen.storyboard */,
+				04D6A0122017012600BF3263 /* main.m */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		04D6A028201701C200BF3263 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A029201701D300BF3263 /* Macro.h */,
+				04D6A0372017097D00BF3263 /* PrefixHeader.pch */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		04D6A02A201701EA00BF3263 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A02B201701FC00BF3263 /* Images */,
+				04D6A02C2017020400BF3263 /* Plists */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		04D6A02B201701FC00BF3263 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A03E20170FB400BF3263 /* icon_back.png */,
+				04D6A03B20170FB400BF3263 /* icon_back@2x.png */,
+				04D6A03820170FB400BF3263 /* icon_back@3x.png */,
+				04D6A03C20170FB400BF3263 /* register_three_arrow_down@2x.png */,
+				04D6A03D20170FB400BF3263 /* register_three_arrow_down@3x.png */,
+				04D6A03920170FB400BF3263 /* register_three_arrow_up@2x.png */,
+				04D6A03A20170FB400BF3263 /* register_three_arrow_up@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		04D6A02C2017020400BF3263 /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				04D6A0112017012600BF3263 /* Info.plist */,
+			);
+			path = Plists;
+			sourceTree = "<group>";
+		};
+		04D6A02D201702B900BF3263 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				044F9E6920183B2F006AC38D /* Category */,
+				044F9E6020181FA1006AC38D /* Controller */,
+				044F9E6120181FAF006AC38D /* View */,
+				044F9E6220181FB6006AC38D /* Model */,
+				04D6A0312017053700BF3263 /* FoldingTableView.h */,
+				04D6A0322017053700BF3263 /* FoldingTableView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		3185F6C155EE3E762EF95E3C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3F0C819F7350C3F8ADE694BB /* Pods-CLFoldingTableView.debug.xcconfig */,
+				13D761CBEC58669B61C2B455 /* Pods-CLFoldingTableView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		341FF2A7F404D90C9D273155 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50578D678A56C3DDD9A06D97 /* libPods-CLFoldingTableView.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,9 +261,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04D6A0212017012700BF3263 /* Build configuration list for PBXNativeTarget "CLFoldingTableView" */;
 			buildPhases = (
+				37EF317EA592753D1F862804 /* [CP] Check Pods Manifest.lock */,
 				04D69FFC2017012600BF3263 /* Sources */,
 				04D69FFD2017012600BF3263 /* Frameworks */,
 				04D69FFE2017012600BF3263 /* Resources */,
+				FB1E31CE33033AF239075E63 /* [CP] Embed Pods Frameworks */,
+				D1C0FD0A290D78E064705DA9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,8 +340,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D6A0102017012600BF3263 /* LaunchScreen.storyboard in Resources */,
+				04D6A04020170FB500BF3263 /* register_three_arrow_up@2x.png in Resources */,
+				04D6A04320170FB500BF3263 /* register_three_arrow_down@2x.png in Resources */,
+				04D6A04520170FB500BF3263 /* icon_back.png in Resources */,
+				04D6A04220170FB500BF3263 /* icon_back@2x.png in Resources */,
 				04D6A00D2017012600BF3263 /* Assets.xcassets in Resources */,
-				04D6A00B2017012600BF3263 /* Main.storyboard in Resources */,
+				04D6A04120170FB500BF3263 /* register_three_arrow_up@3x.png in Resources */,
+				04D6A04420170FB500BF3263 /* register_three_arrow_down@3x.png in Resources */,
+				04D6A03F20170FB500BF3263 /* icon_back@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,14 +360,75 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		37EF317EA592753D1F862804 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CLFoldingTableView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1C0FD0A290D78E064705DA9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-CLFoldingTableView/Pods-CLFoldingTableView-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/RETableViewManager/RETableViewManager.bundle,
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-CLFoldingTableView/Pods-CLFoldingTableView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB1E31CE33033AF239075E63 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-CLFoldingTableView/Pods-CLFoldingTableView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		04D69FFC2017012600BF3263 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				04D6A0082017012600BF3263 /* ViewController.m in Sources */,
+				04D6A04820171ABC00BF3263 /* CategoryModel.m in Sources */,
 				04D6A0132017012600BF3263 /* main.m in Sources */,
+				044F9E6520182023006AC38D /* CategoryTableViewCell.m in Sources */,
 				04D6A0052017012600BF3263 /* AppDelegate.m in Sources */,
+				04D6A0362017092800BF3263 /* ManagerCategoryViewController.m in Sources */,
+				044F9E6C20183B2F006AC38D /* UIButton+CLButton.m in Sources */,
+				04D6A0332017053700BF3263 /* FoldingTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,14 +451,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		04D6A0092017012600BF3263 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04D6A00A2017012600BF3263 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		04D6A00E2017012600BF3263 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -355,11 +568,13 @@
 		};
 		04D6A0222017012700BF3263 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F0C819F7350C3F8ADE694BB /* Pods-CLFoldingTableView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S85EGA44M;
-				INFOPLIST_FILE = CLFoldingTableView/Info.plist;
+				GCC_PREFIX_HEADER = /Users/mac/Desktop/test/CLFoldingTableView/CLFoldingTableView/Define/PrefixHeader.pch;
+				INFOPLIST_FILE = /Users/mac/Desktop/test/CLFoldingTableView/CLFoldingTableView/Resources/Plists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.z.-.CLFoldingTableView";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,11 +584,13 @@
 		};
 		04D6A0232017012700BF3263 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13D761CBEC58669B61C2B455 /* Pods-CLFoldingTableView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S85EGA44M;
-				INFOPLIST_FILE = CLFoldingTableView/Info.plist;
+				GCC_PREFIX_HEADER = /Users/mac/Desktop/test/CLFoldingTableView/CLFoldingTableView/Define/PrefixHeader.pch;
+				INFOPLIST_FILE = /Users/mac/Desktop/test/CLFoldingTableView/CLFoldingTableView/Resources/Plists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.z.-.CLFoldingTableView";
 				PRODUCT_NAME = "$(TARGET_NAME)";

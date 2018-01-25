@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:CLFoldingTableView/CLFoldingTableView.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Linkage/LinkageTableView.xcodeproj">
    </FileRef>
    <FileRef

@@ -14,7 +14,7 @@
 
 @property (nonatomic, assign) NSInteger id;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSMutableArray <SubCategoryModel>*list;
+@property (nonatomic, strong) NSMutableArray *list;
 @property (nonatomic, assign) BOOL isUnfold;        //是否展开
 
 @end
