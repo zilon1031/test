@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"扫一扫";
     [self initWithCustomView];
 }
 
@@ -58,16 +59,13 @@
 
 - (void)scanButtonClick:(id)sender {
     ScanViewController *scanViewController = [[ScanViewController alloc] init];
-    [self presentViewController:scanViewController animated:YES completion:^{
-        
-    }];
+    [self.navigationController pushViewController:scanViewController animated:YES];
     weakSelf(self)
     [scanViewController setScanResultBlock:^(NSString *scanResult) {
         strongSelf(self)
         if (![NSString isBlankString:scanResult]) {
             self.scanLabel.text = scanResult;
         }
-
     }];
 }
 

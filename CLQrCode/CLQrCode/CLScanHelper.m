@@ -93,10 +93,16 @@
     if (metadataObjects.count > 0) {
         AVMetadataMachineReadableCodeObject *metadataObject = [metadataObjects objectAtIndex:0];
         if (self.scanBlock) {
-            self.scanBlock(metadataObject.stringValue);
+            if ([metadataObject.type containsString:@"QRCode"]) {
+                self.type = ScanType_QRCode;
+            } else {
+                self.type = ScanType_BarCode;
+            }
+            self.scanBlock(metadataObject.stringValue, self.type);
         }
         //输出扫描字符串
         NSLog(@"%@", metadataObject.stringValue);
+        NSLog(@"type = %@", metadataObject.type);
     }
 }
 
@@ -112,13 +118,8 @@
     CGFloat weight = scanRect.size.height / self.layer.frame.size.height;
     CGFloat height = scanRect.size.width / self.layer.frame.size.width;
     
-//    UIView *scanView = [[UIView alloc] init];
-//    scanView.layer.borderColor = [UIColor blueColor].CGColor;
-//    scanView.layer.borderWidth = 1;
-    
     self.output.rectOfInterest = CGRectMake(x, y, weight, height);
     [self initWithScanView:scanRect];
-
 }
 
 /**
@@ -134,10 +135,10 @@
 }
 
 - (void)initWithScanView:(CGRect)scanRect{
-    UILabel *upTipLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 70, KMainW - 20, 20)];
+    UILabel *upTipLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, KMainH - 233, KMainW - 20, 20)];
     upTipLabel.backgroundColor = [UIColor clearColor];
     upTipLabel.text = @"将商品条形码、用户的二维码";
-    upTipLabel.textColor = [UIColor blueColor];
+    upTipLabel.textColor = kColor_9;
     upTipLabel.textAlignment = NSTextAlignmentCenter;
     upTipLabel.font = [UIFont systemFontOfSize:15.f];
     [self.superView addSubview:upTipLabel];
@@ -145,22 +146,21 @@
     UILabel *downTipLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, upTipLabel.frame.origin.y + upTipLabel.frame.size.height, KMainW - 20, 20)];
     downTipLabel.backgroundColor = [UIColor clearColor];
     downTipLabel.text = @"放入框内，即可自动扫描";
-    downTipLabel.textColor = [UIColor blueColor];
+    downTipLabel.textColor = kColor_9;
     downTipLabel.textAlignment = NSTextAlignmentCenter;
     downTipLabel.font = [UIFont systemFontOfSize:15.f];
     [self.superView addSubview:downTipLabel];
     
-    UIImage *scanBoxImage = [UIImage imageNamed:@"scanBackground"];
+    UIImage *scanBoxImage = [UIImage imageNamed:@"scan_img_frame"];
     UIImageView *scanBoxImageView = [[UIImageView alloc] init];
     scanBoxImageView.image = scanBoxImage;
     scanBoxImageView.backgroundColor = [UIColor clearColor];
-    
     
     self.scanRect = scanRect;
 
     self.isUpOrDown = NO;
     self.num = 0;
-    UIImage *lineImage = [UIImage imageNamed:@"scanLine"];
+    UIImage *lineImage = [UIImage imageNamed:@"scan_img_line"];
     self.lineImageView = [[UIImageView alloc] initWithFrame:scanRect];
     self.lineImageView.image = lineImage;
     [self.superView addSubview:self.lineImageView];

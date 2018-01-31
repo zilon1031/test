@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^CLScanSuccessBlock)(NSString *resultString);
+typedef NS_ENUM(NSInteger, ScanType)
+{
+    ScanType_QRCode,
+    ScanType_BarCode
+};
+
+typedef void(^CLScanSuccessBlock)(NSString *resultString, ScanType scanType);
 
 @interface CLScanHelper : NSObject
 
@@ -16,6 +22,7 @@ typedef void(^CLScanSuccessBlock)(NSString *resultString);
 
 @property (nonatomic, strong) UIView *scanView;
 @property (nonatomic, copy) CLScanSuccessBlock scanBlock;
+@property (nonatomic, assign) ScanType type;
 
 - (void)startRunning;
 - (void)stopRunning;

@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isOpenLight = NO;
+    self.navigationController.navigationBar.hidden = YES;
     
     [self initWithCustomView];
     
@@ -32,7 +33,7 @@
 }
 
 - (void)initWithCustomView {
-    CGSize scanSize = CGSizeMake(KMainW *4/5, KMainW *4/5);
+    CGSize scanSize = CGSizeMake(302.f , 302.f);
     CGRect scanRect = CGRectMake((KMainW - scanSize.width)/2, 150, scanSize.width, scanSize.height);
 //    UIView *scanView = [[UIView alloc] init];
 //    scanView.layer.borderColor = [UIColor blueColor].CGColor;
@@ -41,48 +42,51 @@
     weakSelf(self)
     [[CLScanHelper sharedInstance] showLayer:self.view];
     [[CLScanHelper sharedInstance] initScanningRect:scanRect];
-    [[CLScanHelper sharedInstance] setScanBlock:^(NSString *resultString) {
+    [[CLScanHelper sharedInstance] setScanBlock:^(NSString *resultString, ScanType scanType) {
         strongSelf(self)
         NSLog(@"scanResult -- %@", resultString);
+        NSUInteger type = scanType;
         [[CLScanHelper sharedInstance] stopRunning];
         
         self.scanResultBlock(resultString);
         [self backButtonClick:nil];
     }];
     
-    UIView *bottomView = [[UIView alloc] init];
-    bottomView.backgroundColor = [UIColor whiteColor];
-    bottomView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview:bottomView];
-    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(KMainW, 40));
-        make.bottom.mas_equalTo(self.view.mas_bottom);
+    UIView *topView = [[UIView alloc] init];
+    topView.backgroundColor = [UIColor clearColor];
+    topView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:topView];
+    [topView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(KMainW, 64));
+        make.top.mas_equalTo(self.view.mas_top);
     }];
     
+    UIImage *backImage = [UIImage imageNamed:@"scan_btn_back"];
+    UIImage *lightImage = [UIImage imageNamed:@"scan_btn_flashlight"];
+    CGFloat backTitleWidth = kgetContentMaxWidth(@"返回", 15);
+    CGFloat lightTitleWidth = kgetContentMaxWidth(@"打开", 15);
+
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.backgroundColor = [UIColor clearColor];
     [backButton addTarget:self action:@selector(backButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     backButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [bottomView addSubview:backButton];
+    [topView addSubview:backButton];
     [backButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(100, 40));
-        make.top.mas_equalTo(bottomView.mas_top);
-        make.left.mas_equalTo(bottomView.mas_left).with.mas_offset(10);
+        make.size.mas_equalTo(CGSizeMake(28 + backImage.size.width + backTitleWidth, 40));
+        make.bottom.mas_equalTo(topView.mas_bottom);
+        make.left.mas_equalTo(topView.mas_left);
     }];
     
     UIButton *openLightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     openLightButton.backgroundColor = [UIColor clearColor];
     [openLightButton addTarget:self action:@selector(openLightButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     openLightButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [bottomView addSubview:openLightButton];
+    [topView addSubview:openLightButton];
     [openLightButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(100, 40));
-        make.top.mas_equalTo(bottomView.mas_top);
-        make.right.mas_equalTo(bottomView.mas_right).with.mas_offset(-10);
+        make.size.mas_equalTo(CGSizeMake(28 + lightImage.size.width + lightTitleWidth, 40));
+        make.bottom.mas_equalTo(topView.mas_bottom);
+        make.right.mas_equalTo(topView.mas_right);
     }];
-    
-    UIImage *backImage = [UIImage imageNamed:@"icon_back_green"];
-    UIImage *lightImage = [UIImage imageNamed:@"icon_back_green"];
     
     [self initWithButton:backButton leftImage:backImage rightTitle:@"返回"];
     [self initWithButton:openLightButton leftImage:lightImage rightTitle:@"打开"];
@@ -96,32 +100,28 @@
     [button addSubview:leftImageView];
     [leftImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(leftImage.size.width, leftImage.size.height));
-        make.left.mas_equalTo(button.mas_left);
+        make.left.mas_equalTo(button.mas_left).with.mas_offset(12);
         make.centerY.mas_equalTo(button.mas_centerY);
     }];
     
     UILabel *rightLabel = [[UILabel alloc] init];
     rightLabel.backgroundColor = [UIColor clearColor];
     rightLabel.text = rightTitle;
-    rightLabel.textColor = [UIColor darkGrayColor];
+    rightLabel.textColor = kColor_1;
     rightLabel.textAlignment = NSTextAlignmentLeft;
     rightLabel.font = [UIFont systemFontOfSize:15.f];
     rightLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [button addSubview:rightLabel];
     [rightLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(90 - leftImage.size.width, 30));
-        make.left.mas_equalTo(leftImageView.mas_right).with.mas_offset(5);
+        make.size.mas_equalTo(CGSizeMake(kgetContentMaxWidth(rightTitle, 15) + 1, 30));
+        make.left.mas_equalTo(leftImageView.mas_right).with.mas_offset(4);
         make.centerY.mas_equalTo(button.mas_centerY);
     }];
 }
 
 - (void)backButtonClick:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    [self.navigationController popViewControllerAnimated:YES];
 }
-
-
 
 /**
  *  用到了  NSClassFromString(NSString *aClassName) 解释一下：
